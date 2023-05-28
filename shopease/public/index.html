@@ -37,6 +37,19 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Shopease</title>
+    <script src="https://assets.fastsimon.com/sdk/latest/fast_simon_sdk.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          window.FastSimonSDK.initialization({
+              storeID: 55906173135, // store-id,
+              uuid: "3eb6c1d2-152d-4e92-9c29-28eecc232373", // uuid
+              type: "SPA", // multi page application ("MPA") or single page application("SPA") (for reporting)
+              onReady: () => {
+                  console.log('FastSimonSDK.initialization');
+              }
+          });
+      });
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

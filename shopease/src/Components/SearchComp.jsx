@@ -34,7 +34,13 @@ const SearchComp = () => {
     <VStack max-width="28rem">
       <HStack spacing="0">
         <Input value={inputval} onChange={handleChange} placeholder= " What is on your mind today?" size='md' w="40rem" bg="#e9f6f7" />
-        <Button onClick={() => navigate("/mobile")} bg='rgb(255,120,86)' px="2rem" color="white" variant='solid'>Search</Button>
+        <Button onClick={window.FastSimonSDK.fullTextSearch({
+                          term: `${inputval}`,
+                          callback: (response) => {
+                              console.log('fullTextSearch', response);
+                              // navigate(`/${inputval}`);
+                          }
+    })} bg='rgb(255,120,86)' px="2rem" color="white" variant='solid'>Search</Button>
       </HStack>
       {/* <Box w="52rem" maxH="10rem" p="1rem" textAlign='left' overflow="hidden">
             {suggestions?.map((item, index)=><div key={index}>{item}</div>)}
